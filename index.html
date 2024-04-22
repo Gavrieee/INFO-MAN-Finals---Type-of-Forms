@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Types of Forms</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content" class="center">
+    <div>
+        <h1>Name Creator</h1>
+
+        <form id="myForm">
+          <label for="fname">First name:</label><br>
+          <input type="text" id="fname" name="fname" value="Gavrie"><br>
+          <label for="lname">Last name:</label><br>
+          <input type="text" id="lname" name="lname" value="Talaboc"><br><br>
+          <input type="button" value="Create!" onclick="submitForm()">
+        </form> 
+
+    </div>
+</div>
+
+<script>
+function submitForm() {
+  // Get values from the form
+  var firstName = document.getElementById('fname').value;
+  var lastName = document.getElementById('lname').value;
+
+  // Build the thank you message with user inputs
+  var thankYouMessage = document.createElement('div');
+  thankYouMessage.innerHTML = "<h1>Thank you, " + firstName + " " + lastName + "!</h1><p>Your name has been created.</p>";
+
+  // Clear the existing content but keep the centering
+  var contentDiv = document.getElementById('content');
+  contentDiv.innerHTML = ''; // Clear the existing content
+  contentDiv.appendChild(thankYouMessage); // Append the new content
+  
+  // Optionally, adjust styles or add more functionality here
+}
+</script>
+
+</body>
+</html>
